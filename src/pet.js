@@ -18,7 +18,6 @@ Pet.prototype.walk = function() {
         this.fitness = maxFitness;
     }
 };
-
 Pet.prototype.feed = function() {
     const minHunger = 0;
     if ((this.hunger - 3) >= minHunger) {
@@ -28,11 +27,20 @@ Pet.prototype.feed = function() {
     }
 };
 
-/*
-Pet.prototype.checkUp = function() {
 
+Pet.prototype.checkUp = function() {
+    if (this.fitness <= 3 && this.hunger >= 5) {
+        return 'I am hungry AND I need a walk';
+    } else if (this.fitness <= 3 && this.hunger < 5) {
+        return 'I need a walk';
+    } else if (this.fitness > 3 && this.hunger >= 5) {
+        return 'I am hungry';
+    } else {
+        return 'I feel great!'
+    }
 };
-*/ 
+
+/* Add variables to checkUp() function to make it more readable */
 
 
 

@@ -24,27 +24,36 @@ describe('constructor', () => {
 
       expect(pet.fitness).toEqual(10);
     });
-    it('increases age of pet by 1', () => {
+  });
+
+describe('growUp', () => {
+    it('growUp increases age of pet by 1', () => {
       const pet = new Pet('Fido');
 
+      pet.age = 0;
       pet.growUp();
 
       expect(pet.age).toEqual(1);
     });
-    it('increases hunger of pet by 5', () => {
+    it('growUp increases hunger of pet by 5', () => {
       const pet = new Pet('Fido');
 
+      pet.hunger = 0;
       pet.growUp();
 
       expect(pet.hunger).toEqual(5);
     });
-    it('decreases fitness of pet by 3', () => {
+    it('growUp decreases fitness of pet by 3', () => {
       const pet = new Pet('Fido');
 
+      pet.fitness = 10;
       pet.growUp();
 
       expect(pet.fitness).toEqual(7);
     });
+  });
+
+describe('walk', () => {
     it('increases fitness of pet by 4', () => {
       const pet = new Pet('Fido');
 
@@ -63,7 +72,7 @@ describe('constructor', () => {
     });
   });
 
-  describe('feed', () => {
+describe('feed', () => {
     it('decreases the pets level of hunger by 3', () => {
       const pet = new Pet('Fido');
 
@@ -83,7 +92,6 @@ describe('constructor', () => {
   });
 
   
-  /*
   describe('checkUp', () => {
     it('pet needs walking if fitness is 3 or below', () => {
       const pet = new Pet('Fido');
@@ -103,7 +111,7 @@ describe('constructor', () => {
 
       expect(pet.checkUp()).toEqual('I am hungry')
     });
-    it('lets you know if the pet is hungy and needs walking', () => {
+    it('pet is hungy and needs walking', () => {
       const pet = new Pet('Fido');
 
       pet.fitness = 3;
@@ -111,9 +119,17 @@ describe('constructor', () => {
       pet.checkUp();
 
       expect(pet.checkUp()).toEqual('I am hungry AND I need a walk');
-    }); 
+    });
+    it('pet feels great, pet.hunger < 5 and pet.fitness > 3', () => {
+      const pet = new Pet('Fido');
+
+      pet.fitness = 4;
+      pet.hunger = 4;
+      pet.checkUp();
+
+      expect(pet.checkUp()).toEqual('I feel great!');
+    });
   });
-  */
   
 
 
