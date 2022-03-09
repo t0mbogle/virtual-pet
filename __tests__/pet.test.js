@@ -63,4 +63,57 @@ describe('constructor', () => {
     });
   });
 
+  describe('feed', () => {
+    it('decreases the pets level of hunger by 3', () => {
+      const pet = new Pet('Fido');
+
+      pet.hunger = 3;
+      pet.feed();
+
+      expect(pet.hunger).toEqual(0);
+    });
+    it('decreases the pets level of hunger, but should not go below 0', () => {
+      const pet = new Pet('Fido');
+
+      pet.hunger = 1;
+      pet.feed();
+
+      expect(pet.hunger).toEqual(0);
+    });
+  });
+
+  
+  /*
+  describe('checkUp', () => {
+    it('pet needs walking if fitness is 3 or below', () => {
+      const pet = new Pet('Fido');
+
+      pet.fitness = 3;
+      pet.hunger = 1;
+      pet.checkUp();
+
+      expect(pet.checkUp()).toEqual('I need a walk');
+    });
+    it('pet needs feeding if hunger is 5 or more', () => {
+      const pet = new Pet('Fido');
+
+      pet.hunger = 5;
+      pet.fitness = 5;
+      pet.checkUp();
+
+      expect(pet.checkUp()).toEqual('I am hungry')
+    });
+    it('lets you know if the pet is hungy and needs walking', () => {
+      const pet = new Pet('Fido');
+
+      pet.fitness = 3;
+      pet.hunger = 5;
+      pet.checkUp();
+
+      expect(pet.checkUp()).toEqual('I am hungry AND I need a walk');
+    }); 
+  });
+  */
+  
+
 
