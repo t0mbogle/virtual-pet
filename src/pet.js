@@ -5,6 +5,14 @@ function Pet(name) {
     this.fitness = 10;
 }
 
+Pet.prototype = {
+    get isAlive() {
+      return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+    }
+};
+
+
+
 Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
@@ -26,8 +34,6 @@ Pet.prototype.feed = function() {
         this.hunger = minHunger;
     }
 };
-
-
 Pet.prototype.checkUp = function() {
     if (this.fitness <= 3 && this.hunger >= 5) {
         return 'I am hungry AND I need a walk';
@@ -39,8 +45,6 @@ Pet.prototype.checkUp = function() {
         return 'I feel great!'
     }
 };
-
-/* Add variables to checkUp() function to make it more readable */
 
 
 
