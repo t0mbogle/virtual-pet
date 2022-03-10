@@ -114,6 +114,13 @@ describe('feed', () => {
 
   
   describe('checkUp', () => {
+    it('throws an error if the pet is not alive', () => {
+      const pet = new Pet('Fido');
+
+      pet.age = 30;
+
+      expect(() => pet.checkUp()).toThrow('Your pet is no longer alive :(');
+    });
     it('pet needs walking if fitness is 3 or below', () => {
       const pet = new Pet('Fido');
 

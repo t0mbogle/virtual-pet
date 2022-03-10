@@ -45,19 +45,20 @@ Pet.prototype.feed = function() {
 };
 
 Pet.prototype.checkUp = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    }
     if (this.fitness <= 3 && this.hunger >= 5) {
         return 'I am hungry AND I need a walk';
-    } else if (this.fitness <= 3 && this.hunger < 5) {
+    } 
+    if (this.fitness <= 3 && this.hunger < 5) {
         return 'I need a walk';
-    } else if (this.fitness > 3 && this.hunger >= 5) {
+    } 
+    if (this.fitness > 3 && this.hunger >= 5) {
         return 'I am hungry';
-    } else {
-        return 'I feel great!'
     }
+  return 'I feel great!'
 };
-
-// Consider removing magic numbers from checkUp() function //
-
 
 /* Check logic of project makes sense in Node REPL, 
 check all posibilities with all different functions. 
