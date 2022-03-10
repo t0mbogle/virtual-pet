@@ -11,14 +11,19 @@ Pet.prototype = {
     }
 };
 
-
-
 Pet.prototype.growUp = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    }
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
 };
+
 Pet.prototype.walk = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    }
     const maxFitness = 10;
     if ((this.fitness + 4) <= maxFitness) {
         this.fitness += 4;
@@ -26,7 +31,11 @@ Pet.prototype.walk = function() {
         this.fitness = maxFitness;
     }
 };
+
 Pet.prototype.feed = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    }
     const minHunger = 0;
     if ((this.hunger - 3) >= minHunger) {
         this.hunger -= 3;
@@ -34,6 +43,7 @@ Pet.prototype.feed = function() {
         this.hunger = minHunger;
     }
 };
+
 Pet.prototype.checkUp = function() {
     if (this.fitness <= 3 && this.hunger >= 5) {
         return 'I am hungry AND I need a walk';
@@ -45,6 +55,13 @@ Pet.prototype.checkUp = function() {
         return 'I feel great!'
     }
 };
+
+// Consider removing magic numbers from checkUp() function //
+
+
+/* Check logic of project makes sense in Node REPL, 
+check all posibilities with all different functions. 
+Edit any issues. :) */
 
 
 
