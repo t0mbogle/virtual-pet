@@ -206,3 +206,17 @@ describe('feed', () => {
       expect(pet.isAlive).toEqual(false);
     });
   });
+
+
+  describe('adoptChild', () => {
+    it('checks if parent adopts child', () => {
+      const parent = new Pet('Dave');
+
+      /* Declare parent and child (const parent = new Pet..., const child = new Pet...) in Node REPL 
+      so that they can be referenced with parent.adoptChild('childName') */
+
+      parent.adoptChild('Amelia');
+
+      expect(parent.children[0].name).toEqual('Amelia');
+    });
+  });

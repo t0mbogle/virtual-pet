@@ -1,8 +1,12 @@
+const minHunger = 0;
+const maxFitness = 10;
+
 function Pet(name) {
     this.name = name;
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
+    this.children = [];
 }
 
 Pet.prototype = {
@@ -24,7 +28,6 @@ Pet.prototype.walk = function() {
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
-    const maxFitness = 10;
     if ((this.fitness + 4) <= maxFitness) {
         this.fitness += 4;
     } else {
@@ -36,7 +39,6 @@ Pet.prototype.feed = function() {
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
-    const minHunger = 0;
     if ((this.hunger - 3) >= minHunger) {
         this.hunger -= 3;
     } else {
@@ -60,10 +62,10 @@ Pet.prototype.checkUp = function() {
   return 'I feel great!'
 };
 
-/* Check logic of project makes sense in Node REPL, 
-check all posibilities with all different functions. 
-Edit any issues. :) */
-
+Pet.prototype.adoptChild = function(child) {
+    const baby = new Pet(child)
+    this.children.push(baby);
+};
 
 
 module.exports = Pet;
