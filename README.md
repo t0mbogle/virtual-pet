@@ -8,4 +8,4 @@ You can give them a name. They can get older. As they get older, they get hungri
 A project from the Software Engineering course by Manchester Codes.
 
 ## Roadmap
-This project is no longer being supported by the developer, although improvements may be made in the future.
+This project is not recieving support, although improvements may be made in the future.
